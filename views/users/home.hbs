@@ -1,0 +1,37 @@
+ <main>
+            <h1 class="text-center">Courses</h1>
+            <section>
+                <a href="/products/create" class="btn btn-warning ">Create Course</a>
+                <form class="search float-right" method="POST">
+                    <label>Search: </label>
+                    <input type="text" name="query">
+                    <input type="submit" class="btn btn-primary" value="Search">
+                </form>
+            </section>
+
+            <div class="container mt-3">
+                <div class="row ">
+                    <div class="card-deck d-flex justify-content-center">
+                        {{#each sortedCourses}}
+                        <div class="card mb-4">
+                            <img class="card-img-top"
+                                src="{{imageUrl}}"
+                                alt="{{imageUrl}}" width="400">
+                            <div class="card-body">
+                                <h4 class="card-title">{{title}}</h4>
+                            </div>
+                            <div class="card-footer">
+                                <a href="/products/{{_id}}/details"><button type="button" class="btn btn-primary">Details</button></a>
+                                <small class="float-right">{{createdOn}}</small>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                
+            </div>
+            {{#unless sortedCourses}}
+            <h3 class="text-center">No courses...</h3>
+            {{/unless}}
+        </main>
+
